@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org/'
+source 'http://rubygems.org/'
 ruby '2.1.1'
 gem 'rubyzip', '< 1.1.2'
 gem 'watir-webdriver', '~> 0.6.9'
