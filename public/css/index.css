@@ -1,0 +1,40 @@
+div>div>div>p{
+	line-height:25px;
+	font-size:14px;
+}
+
+div>div>div>a{
+	line-height:8px;
+	font-size:14px;
+}
+
+a{
+	color:#00b5ad;
+}
+
+h2{
+	text-align:center;
+	margin-top:14px
+}
+
+#weanow{
+	font-size:14px;
+}
+
+#future{
+	font-size:12px;
+}
+
+#detail>div{
+	margin-top:5px;
+	line-height:24px;
+	font-size:13px;
+}
+
+#future>tbody>tr{
+	height:40px;
+}
+
+#future_div{
+  overflow: auto;
+}

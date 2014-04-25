@@ -1,0 +1,63 @@
+doctype html
+html lang='zh-CN'
+  head
+    title LifeTools
+    link rel="shortcut icon" type="image/ico" href="/res/favicon.ico"
+    link rel='stylesheet' href='/css/semantic.min.css'
+    link rel='stylesheet' href='/css/typo.css'
+    link rel='stylesheet' href='/css/index.css'
+  body
+    div.ui.fixed.secondary.menu style='float:left'
+      div.ui.black.mini.launch.right.attached.button#SideBtn style='margin-top:10px'data-variation='.right' About
+    div.ui.thin.sidebar.inverted.black.vertical.menu 
+      div.item
+        img.ui.rounded.small.image style='margin-top:20px'src='/res/HuXu.png'
+      div.item
+        div.ui.raised.segment.black.inverted
+          div.ui.teal.ribbon.label Introduction
+          p 个人项目 <br /> 也许不算项目
+          div.ui.orange.ribbon.label Framework
+          p 前端:
+          a href='http://semantic-ui.com/' Semantic-ui &nbsp;
+          a href='http://jquery.com/' jQuery
+          p 后台:
+          a href='http://www.sinatrarb.com/' Sinatra
+          div.ui.blue.ribbon.label DataFrom
+          p  
+            a href='http://www.weather.com.cn/' 中国天气网
+          p 
+            a href='http://www.ckd.cn/' 查快递
+          div.ui.purple.ribbon.label SourceCode
+          a href='https://github.com/MrHuxu/lifetools'
+            img src='/res/github.png'
+    div.ui.grid style='margin-top:50px'
+      div.four.wide.column
+      div.eight.wide.column
+        div.ui.green.inverted.vertical.fluid.menu
+          div.header.item =@company
+          div.text.item
+            div.ui.grid
+              div.one.wide.column
+              div.fourteen.wide.column
+                p style='float:left' 快递单号：#{@expcode}
+                p style='float:right' 发出时间：#{@expdata[0]}
+                div style='margin-top:40px;margin-bottom:10px'
+                  table.ui.inverted.orange.table.segment  
+                    thead
+                      tr.active
+                        th 时间
+                        th 进度
+                    tbody
+                      -0.upto(@expdata.length / 2 - 1) do |i|
+                        -if i % 2 == 1
+                          tr.active
+                            th #{@expdata[i * 2]}
+                            th #{@expdata[i * 2 + 1]}
+                        -else
+                          tr
+                            th #{@expdata[i * 2]}
+                            th #{@expdata[i * 2 + 1]}
+    script src='/js/jquery-1.10.2.min.js'
+    script src='/js/jquery.color-2.1.2.min.js'
+    script src='/js/semantic.min.js'
+    script src='/js/index.js'

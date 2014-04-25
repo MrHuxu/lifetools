@@ -1,0 +1,126 @@
+doctype html
+html lang='zh-CN'
+  head
+    title 天气查询: #{@weadata['city'].split('')[1..-2].join}
+    link rel="shortcut icon" type="image/ico" href="/res/favicon.ico"
+    link rel='stylesheet' href='/css/semantic.min.css'
+    link rel='stylesheet' href='/css/typo.css'
+    link rel='stylesheet' href='/css/index.css'
+  body
+    div.ui.fixed.secondary.menu style='float:left'
+      div.ui.black.mini.launch.right.attached.button#SideBtn style='margin-top:10px'data-variation='.right' About
+    div.ui.thin.sidebar.inverted.black.vertical.menu 
+      div.item
+        img.ui.rounded.small.image style='margin-top:20px'src='/res/HuXu.png'
+      div.item
+        div.ui.raised.segment.black.inverted
+          div.ui.teal.ribbon.label Introduction
+          p 个人项目 <br /> 也许不算项目
+          div.ui.orange.ribbon.label Framework
+          p 前端:
+          a href='http://semantic-ui.com/' Semantic-ui &nbsp;
+          a href='http://jquery.com/' jQuery
+          p 后台:
+          a href='http://www.sinatrarb.com/' Sinatra
+          div.ui.blue.ribbon.label DataFrom <br />
+          p 
+            a href='http://www.weather.com.cn/' 中国天气网
+          p
+            a href='http://www.ckd.cn/' 查快递
+          div.ui.purple.ribbon.label SourceCode
+          a href='https://github.com/MrHuxu/lifetools'
+            img src='/res/github.png'
+    div.ui.grid style='margin-top:50px'
+      div.two.wide.column
+      div.five.wide.column
+        div.ui.blue.inverted.vertical.fluid.menu
+          div.header.item 实时天气情况
+          div.text.item
+            div.ui.grid 
+              div.five.wide.column
+                h2 #{@weadata['city'].split('')[1..-2].join}
+              div.eleven.wide.column
+                table.ui.table.segment#weanow
+                  tr
+                    td 时间：#{@weadata['"date_y"'].split('')[1..-2].join + @weadata['"time"'].split('')[1..-1].join + '时'}
+                  tr
+                    td 
+                      |气温：#{@weadata['"temp"'].split('')[1..-2].join + '℃'}&nbsp;&nbsp;&nbsp;天气：#{@weadata['"weather1"'].split('')[1..-2].join}
+            div.ui.grid#detail
+                div.six.wide.column
+                  |风向: #{@weadata['"WD"'].split('')[1..-2].join} 
+                div.ten.wide.column
+                  |风速:#{@weadata['"WS"'].split('')[1..-2].join}
+                div.eight.wide.column
+                  |天气范围：#{@weadata['"temp1"'].split('')[1..-2].join}
+                div.eight.wide.column
+                  |紫外线强度：#{@weadata['"index_uv"'].split('')[1..-2].join}
+                div.sixteen.wide.column
+                  |着装建议：#{@weadata['"index_d"'].split('')[1..-2].join}
+      div.one.wide.column
+      div.six.wide.column
+        div.ui.blue.inverted.vertical.fluid.menu#future_div
+          div.header.item 未来五天预报
+          div.text.item
+            table.ui.table.segment#future
+              thead
+                tr
+                  th &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  th 未来一天
+                  th 未来两天
+                  th 未来三天
+                  th 未来四天
+                  th 未来五天
+              tbody 
+                tr 
+                  td 气温
+                  td =@weadata['"temp2"'].split('')[1..-2].join
+                  td =@weadata['"temp3"'].split('')[1..-2].join
+                  td =@weadata['"temp4"'].split('')[1..-2].join
+                  td =@weadata['"temp5"'].split('')[1..-2].join
+                  td =@weadata['"temp6"'].split('')[1..-2].join
+                tr
+                  td 天气 
+                  td =@weadata['"weather2"'].split('')[1..-2].join
+                  td =@weadata['"weather3"'].split('')[1..-2].join
+                  td =@weadata['"weather4"'].split('')[1..-2].join
+                  td =@weadata['"weather5"'].split('')[1..-2].join
+                  td =@weadata['"weather6"'].split('')[1..-2].join
+                tr
+                  td 风向
+                  td 
+                    - if (@weadata['"wind2"'].split('')[3] > '0' && @weadata['"wind2"'].split('')[3] <= '9') || @weadata['"wind2"'].split('')[3] == '"' || @weadata['"wind2"'].split('')[3] == '转'
+                      =@weadata['"wind2"'].split('')[1..2].join
+                    - else
+                      =@weadata['"wind2"'].split('')[1..3].join
+                  td 
+                    - if @weadata['"wind3"'].split('')[3] > '0' && @weadata['"wind3"'].split('')[3] <= '9'  || @weadata['"wind2"'].split('')[3] == '"' || @weadata['"wind3"'].split('')[3] == '转'
+                      =@weadata['"wind3"'].split('')[1..2].join
+                    - else
+                      =@weadata['"wind3"'].split('')[1..3].join
+                  td 
+                    - if (@weadata['"wind4"'].split('')[3] > '0' && @weadata['"wind4"'].split('')[3] <= '9') || @weadata['"wind4"'].split('')[3] == '"' || @weadata['"wind4"'].split('')[3] == '转'
+                      =@weadata['"wind4"'].split('')[1..2].join
+                    - else
+                      =@weadata['"wind4"'].split('')[1..3].join
+                  td                 
+                    - if (@weadata['"wind5"'].split('')[3] > '0' && @weadata['"wind5"'].split('')[3] <= '9') || @weadata['"wind5"'].split('')[3] == '"' || @weadata['"wind5"'].split('')[3] == '转'
+                      =@weadata['"wind5"'].split('')[1..2].join
+                    - else
+                      =@weadata['"wind5"'].split('')[1..3].join
+                  td 
+                    - if (@weadata['"wind6"'].split('')[3] > '0' && @weadata['"wind6"'].split('')[3] <= '9') || @weadata['"wind6"'].split('')[3] == '"' || @weadata['"wind6"'].split('')[3] == '转'
+                      =@weadata['"wind6"'].split('')[1..2].join
+                    - else
+                      =@weadata['"wind6"'].split('')[1..3].join
+                tr
+                  td 风速
+                  td =@weadata['"fl2"'].split('')[1..-2].join
+                  td =@weadata['"fl3"'].split('')[1..-2].join
+                  td =@weadata['"fl4"'].split('')[1..-2].join
+                  td =@weadata['"fl5"'].split('')[1..-2].join
+                  td =@weadata['"fl6"'].split('')[1..-2].join
+    script src='/js/jquery-1.10.2.min.js'
+    script src='/js/jquery.color-2.1.2.min.js'
+    script src='/js/semantic.min.js'
+    script src='/js/index.js'
