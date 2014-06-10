@@ -6,7 +6,7 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     daemons (1.1.9)
     eventmachine (1.0.3)
-    excon (0.36.0)
+    excon (0.37.0)
     ffi (1.9.3)
     heroku (3.6.0)
       heroku-api (~> 0.3.17)
