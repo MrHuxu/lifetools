@@ -1,7 +1,7 @@
 source 'http://rubygems.org/'
 ruby '2.1.2'
 gem 'rubyzip', '< 1.1.2'
-gem 'watir-webdriver', '~> 0.6.9'
+gem 'watir-webdriver', '~> 0.6.10'
 gem 'nokogiri', '~> 1.6.2.1'
 gem 'shotgun', '~> 0.9'
 gem 'thin', '~> 1.6.2'
