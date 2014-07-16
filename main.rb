@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #encoding: utf-8
+=======
+>>>>>>> 79bbd1260888325df364b68c9a8ff22547065963
 require 'sinatra'
 require 'slim'
 load 'lib/WeaSearch.rb'
