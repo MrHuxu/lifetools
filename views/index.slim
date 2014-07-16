@@ -1,0 +1,73 @@
+doctype html
+html lang='zh-CN'
+  head
+    title LifeTools
+    link rel="shortcut icon" type="image/ico" href="/res/favicon.ico"
+    link rel='stylesheet' href='/css/semantic.min.css'
+    link rel='stylesheet' href='/css/typo.css'
+    link rel='stylesheet' href='/css/index.css'
+  body
+    div.ui.fixed.secondary.menu style='float:left'
+      div.ui.black.mini.launch.right.attached.button#SideBtn style='margin-top:30px'data-variation='.right' About
+    div.ui.thin.sidebar.inverted.black.vertical.menu 
+      div.item
+        img.ui.rounded.small.image style='margin-top:20px'src='/res/HuXu.png'
+      div.item
+        div.ui.raised.segment.black.inverted
+          div.ui.teal.ribbon.label Introduction
+          p 个人项目 <br /> 也许不算项目
+          div.ui.orange.ribbon.label Framework
+          p 前端:
+          a href='http://semantic-ui.com/' Semantic-ui &nbsp;
+          a href='http://jquery.com/' jQuery
+          p 后台:
+          a href='http://www.sinatrarb.com/' Sinatra
+          div.ui.blue.ribbon.label DataFrom 
+          p 
+            a href='http://www.weather.com.cn/' 中国天气网
+          p
+            a href='http://www.ckd.cn/' 查快递
+          div.ui.purple.ribbon.label SourceCode
+          a href='https://github.com/MrHuxu/lifetools'
+            img src='/res/github.png'
+    div.container style='width:100%; margin-top:30px; text-align:center'
+      h1 LifeTools
+      div.ui.buttons style='padding-top:30px'
+        button.ui.blue.tiny.button.active#WeaBtn 查天气
+        div.or
+        button.ui.green.tiny.button.active#ExpBtn 查快递
+    div.ui.middle.aligned.three.column.grid style='margin-top:50px'
+      div.column
+      div.column
+        div.ui.blue.inverted.vertical.fluid.menu#WeaMenu
+          div.header.item 查询天气情况
+          div.text.item
+            div.ui.grid style='margin:10px'
+              div.two.wide.column
+              div.twelve.wide.column
+                form.ui.form role='form' action='/wea' method='POST'
+                  div.ui.action.input
+                    input.ui.labeled.input#WeaName name='weaname' type='text' placeholder='请输入地名'
+                    div.ui.button#WeaSearch 查询
+                div.ui.red.pointing.above.ui.label 直接输入地名即可, 不用带"市"、"县"等后缀。
+        div.ui.green.inverted.vertical.fluid.menu#ExpMenu style='display:none; margin-top:0px'
+          div.header.item 查询快递详情
+          div.text.item style='margin:10px'
+            div.ui.grid
+              div.two.wide.column
+              div.twelve.wide.column
+                div.ui.action.input#ExpForm
+                  input#ExpCode type='text' placeholder='请输入快递单号'
+                  div.ui.button.dropdown#ExpFormBtn
+                    input type='hidden' name='gender'
+                    div.default.text 选择
+                    div.menu
+                      div.item 
+                        div.ui.disabled.button#StSearch data-value='option1' 申通
+                      div.item 
+                        div.ui.button#YdSearch data-value='option2' 韵达
+                div.ui.red.pointing.above.ui.label 请不要输入淘宝订单号, 目前支持查询申通、韵达快递。
+    script src='/js/jquery-1.10.2.min.js'
+    script src='/js/jquery.color-2.1.2.min.js'
+    script src='/js/semantic.min.js'
+    script src='/js/index.js'
