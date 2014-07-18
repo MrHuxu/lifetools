@@ -1,4 +1,3 @@
-#encoding: utf-8
 require 'sinatra'
 require 'slim'
 load 'lib/WeaSearch.rb'
@@ -7,6 +6,7 @@ load 'lib/ExpSearch.rb'
 file = File.open('lib/citycode.txt')
 cityHash = Hash.new
 file.each_line do |line|
+  p line.encoding
   line.split(' ').each do |part|
     tmpArr = part.split('=')
     cityHash[tmpArr[1]] = tmpArr[0]
